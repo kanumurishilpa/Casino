@@ -19,18 +19,45 @@ public class PlayerTest {
 
     @Test
     public void getPlayerNameTest(){
-        player.name = "Shilpa";
-        String actual = "Shilpa";
-        String expected = player.getName();
+        player.setName("Shilpa");
+        String expected = "Shilpa";
+        String actual = player.getName();
         Assert.assertEquals(expected,actual);
 
     }
 
     @Test
     public void getPlayerBalanceTest(){
-        player.balance = 500;
-        double actual = 500;
-        double expected = player.getBalance();
+        player.setBalance(500);
+        double expected = 500;
+        double actual = player.getBalance();
+        Assert.assertEquals(expected,actual,0);
+
+    }
+
+    @Test
+    public void getPlayerGameChoiceScanTest(){
+        player.setGameChoice("goFish");
+        String expected = "goFish";
+        String actual = player.getGameChoice();
+        Assert.assertEquals(expected,actual,0);
+
+    }
+
+    @Test
+    public void doYouWantToPlayTest(){
+        player.setYesOrNO("Y");
+        String expected = "goFish";
+        String actual = player.getYesOrNO();
+        Assert.assertEquals(expected,actual,0);
+
+    }
+
+    @Test
+    public void giveMeYourCardTest(){
+        player.setCardChoice("TWO");
+        String expected = "goFish";
+        String actual = player.getCardChoice();
         Assert.assertEquals(expected,actual,0);
 
     }

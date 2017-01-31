@@ -26,7 +26,6 @@ public class CardDeck extends ArrayList<Card> {
     }
 
     public void shuffleDeck(){
-
         Collections.shuffle(this);
     }
 

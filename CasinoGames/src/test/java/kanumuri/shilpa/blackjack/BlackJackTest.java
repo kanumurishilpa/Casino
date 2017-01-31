@@ -1,4 +1,4 @@
-package kanumuri.shilpa.casino;
+package kanumuri.shilpa.blackjack;
 
 import kanumuri.shilpa.blackjack.BlackJack;
 import org.junit.Before;

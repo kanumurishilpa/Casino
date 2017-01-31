@@ -1,37 +1,67 @@
 package kanumuri.shilpa.gofish;
 
 
+import kanumuri.shilpa.casino.Card;
+import kanumuri.shilpa.casino.CardGame;
+import kanumuri.shilpa.casino.Player;
+
 /**
  * Created by shilpakanumuri on 1/29/17.
  */
-public class GoFish{
+public class GoFish extends CardGame{
 
-    HandGF handGF = new HandGF();
-    GoFishGameLogic goFishGame = new GoFishGameLogic();
+    HandOfGoFish playerHand = new HandOfGoFish();
+    HandOfGoFish dealerHand = new HandOfGoFish();
+    Player player = new Player();
+    String selectedCard;
+    Integer oldValueOfKey;
 
     public void startPlaying(){
         System.out.println("You have Started Playing GoFish");
+        playerHand.addSevenCards(cardDeck);
+        dealerHand.addSevenCards(cardDeck);
+        showBothDecks();
+        selectedCard = player.giveMeYourCard();
+        oldValueOfKey = playerHand.get(selectedCard);
+        do{
+            System.out.println();
+            System.out.println("Player Play");
+           playerPlay();
+            System.out.println();
+            System.out.println("Dealer Play");
+           dealerPlay();
+        }while (dealerHand.containsCard(selectedCard) || playerHand.containsCard(selectedCard));
+
     }
 
-    public void showPlayerDeck(){
-          handGF.showHand(handGF.playerHand);
+    public void playerPlay(){
+        playerHand.transferCard(selectedCard,dealerHand);
+        System.out.println("New hands");
+        showBothDecks();
+        if(playerHand.transferSuccessful(oldValueOfKey,selectedCard)){
+            selectedCard = player.giveMeYourCard();
+        }else playerHand.goFishCardFromStack(cardDeck);
     }
 
-    public void showDealerResult(){
-        handGF.showHand(handGF.dealerHand);
+    public void dealerPlay(){
+        dealerHand.transferCard(selectedCard,playerHand);
+        System.out.println("New hands");
+        showBothDecks();
+        if(dealerHand.transferSuccessful(oldValueOfKey,selectedCard)){
+            selectedCard = player.giveMeYourCard();
+        }else dealerHand.goFishCardFromStack(cardDeck);
     }
 
-    public void gamefirstPlay(){
-        handGF.dealSevenRounds();
-        showPlayerDeck();
-        //System.out.println(cardDeck.toString());
+    public void showBothDecks(){
+        System.out.println("playerHand");
+        System.out.println(playerHand.toString());
+        System.out.println("dealerHand");
+        System.out.println(dealerHand.toString());
     }
 
     public void playGoFish(){
         this.startPlaying();
-        this.gamefirstPlay();
-        goFishGame.play(handGF.playerHand, handGF.dealerHand);
-        handGF.stopPlaying();
+        this.stopPlaying();
     }
 
 }

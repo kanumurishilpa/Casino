@@ -1,4 +1,4 @@
-package kanumuri.shilpa.casino;
+package kanumuri.shilpa.gofish;
 
 /**
  * Created by shilpakanumuri on 1/29/17.

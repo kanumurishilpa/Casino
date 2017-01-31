@@ -8,11 +8,10 @@ import org.junit.Test;
  */
 public class CardTest {
 
-    Card card = new Card(Rank.FIVE,Suit.DIAMOND);
-
     @Test
     public void toStringTest(){
         String expected = "FIVE of DIAMOND";
+        Card card = new Card(Rank.FIVE,Suit.DIAMOND);
         String actual = card.toString();
         Assert.assertEquals(expected,actual);
     }

@@ -5,22 +5,51 @@ package kanumuri.shilpa.casino;
  */
 public class Player extends InputOutput {
 
-    public String name;
-    public double balance;
-    public String gameChoice;
-    public String yesOrNO;
-    public String cardChoice;
+    private String name;
+    private double balance;
+    private String gameChoice;
+    private String yesOrNO;
+    private String cardChoice;
+
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getBalance() {
         return balance;
     }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public String getGameChoice() {
         return gameChoice;
+    }
+
+    public void setGameChoice(String gameChoice) {
+        this.gameChoice = gameChoice;
+    }
+
+    public String getYesOrNO() {
+        return yesOrNO;
+    }
+
+    public void setYesOrNO(String yesOrNO) {
+        this.yesOrNO = yesOrNO;
+    }
+
+    public String getCardChoice() {
+        return cardChoice;
+    }
+
+    public void setCardChoice(String cardChoice) {
+        this.cardChoice = cardChoice;
     }
 
     public String getPlayerName(){
